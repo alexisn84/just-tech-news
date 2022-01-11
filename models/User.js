@@ -1,79 +1,61 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
+const sequelize = require('../config/connection');
 
-//create our user model
+// create our User model
 class User extends Model {
-    //set up method to run on instance data (per user) to check password
+    // set up method to run on instance data (per user) to check password
     checkPassword(loginPw) {
         return bcrypt.compareSync(loginPw, this.password);
     }
 }
 
-//define table columns and configuration
+// create fields/columns for User model
 User.init(
     {
-        //define an id column
         id: {
-            //use special Sequelize DataTypes objec provide what type of data
-            type: DataTypes.INTEGER,
-            //this is the equivalent of SQL's 'NOT NULL' option
-            allowNull: false,
-            //instruct that this is the Primary Key
-            primaryKey: true,
-            //turn on autoincrement
-            autoIncrement: true
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true
         },
-        //define a username column
         username: {
-            type: DataTypes.STRING,
-            allowNull: false
+        type: DataTypes.STRING,
+        allowNull: false
         },
-        //define an email column
         email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            //there cannot be any duplicate email values in this table
-            unique: true,
-            //if allowNull is set to false, we can run our data through validation
-            validate: {
-                isEmail: true
-            }
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+            isEmail: true
+        }
         },
-        //define password columm
         password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                //this means the password must be at least 4 characters long
-                len: [4]
-            }
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            len: [4]
+        }
         }
     },
     {
         hooks: {
-            //set up beforeCreate lifecycle "hook" functionality
-            async beforeCreate(newUserData) {
-                newUserData.password = await bcrypt.hash(newUserData.password, 10);
-                return newUserData;
-            },
-            //setup beforeUpdate lifecycle "hook" functionality
-            async beforeUpdate(updatedUserData) {
-                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-                return updatedUserData;
-            }
+        // set up beforeCreate lifecycle "hook" functionality
+        async beforeCreate(newUserData) {
+            newUserData.password = await bcrypt.hash(newUserData.password, 10);
+            return newUserData;
         },
-        //TABLE CONFIGURATION OPTIONS GO HERE
 
-        //pass in our imported sequelize connection(the direct connection to our database)
+        async beforeUpdate(updatedUserData) {
+            updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+            return updatedUserData;
+        }
+        },
         sequelize,
-        // don't automatically create createdAt/updatedAt timestamp fields
         timestamps: false,
-        // don't pluralize name of database table
         freezeTableName: true,
-        // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
         underscored: true,
-        // make it so our model name stays lowercase in the database
         modelName: 'user'
     }
 );
