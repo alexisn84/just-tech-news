@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "editor.parameterHints.enabled": false,
+  
   "dependencies": {
     "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
