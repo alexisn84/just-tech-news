@@ -10,14 +10,13 @@
   "author": "",
   "license": "ISC",
   "editor.parameterHints.enabled": false,
-  
   "dependencies": {
     "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
     "mysql2": "^2.3.3",
     "node": "^17.3.0",
     "sequelize": "^6.12.5"
   }
 }
-
