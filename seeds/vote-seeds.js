@@ -82,34 +82,6 @@ const votedata = [
         post_id: 16
     },
     {
-        user_id: 10,
-        post_id: 18
-    },
-    {
-        user_id: 4,
-        post_id: 10
-    },
-    {
-        user_id: 10,
-        post_id: 5
-    },
-    {
-        user_id: 5,
-        post_id: 16
-    },
-    {
-        user_id: 6,
-        post_id: 17
-    },
-    {
-        user_id: 1,
-        post_id: 15
-    },
-    {
-        user_id: 7,
-        post_id: 13
-    },
-    {
         user_id: 6,
         post_id: 3
     },

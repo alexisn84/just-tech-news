@@ -184,37 +184,6 @@ const commentdata = [
         post_id: 14
     },
     {
-        comment_text: 'Maecenas ut massa quis augue luctus tincidunt.',
-        user_id: 10,
-        post_id: 8
-    },
-    {
-        comment_text: 'Cras in purus eu magna vulputate luctus.',
-        user_id: 10,
-        post_id: 11
-    },
-    {
-        comment_text: 'Etiam vel augue. Vestibulum rutrum rutrum neque.',
-        user_id: 8,
-        post_id: 5
-    },
-    {
-        comment_text: 'Proin at turpis a pede posuere nonummy.',
-        user_id: 8,
-        post_id: 19
-    },
-    {
-        comment_text: 'Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.',
-        user_id: 9,
-        post_id: 19
-    },
-    {
-        comment_text:
-        'Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.',
-        user_id: 5,
-        post_id: 4
-    },
-    {
         comment_text:
         'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.',
         user_id: 2,
