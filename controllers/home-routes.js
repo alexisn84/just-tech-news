@@ -5,6 +5,8 @@ const { Post, User, Comment, Vote } = require('../models');
 
 //root route
 router.get('/', (req, res) => {
+    console.log(req.session);
+    
     Post.findAll({
         attributes: [
             'id',
